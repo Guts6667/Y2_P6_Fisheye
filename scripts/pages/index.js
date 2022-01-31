@@ -1,13 +1,14 @@
 const displayPhotographers = (photographers) => {
 
     console.log(photographers);
-
+    // Create photographerSection
     const photographersSection = document.querySelector(".photographer_section");
+    // For each photographer in photographers => Create a new Photographer
     photographers.forEach((photographer) => {
 
        
         let photographerModel = new Photographer(photographer);
-
+        // Add PhotographerCard to photographersSection
         photographersSection.innerHTML += photographerModel.createPhotographerCard();
 
 

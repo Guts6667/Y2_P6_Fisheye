@@ -1,8 +1,10 @@
 // 1 Récupérer les données du photographe
 
 // 2 Les stocker dans un objet photographe
-
-
+let photo;
+let myPhotographer;
+const contactButton = document.querySelector('.contact_button')
+const photographerHeader = document.querySelector('header')
 const displayPhotographerData = async()=> {
 
     const { photographers, media } = await getData();
@@ -14,15 +16,27 @@ const displayPhotographerData = async()=> {
     
     // Cherche dans photographers si un photographer a le même id que identifier
     // On l'affecte à photographer
-    let myPhotographer = photographers.find(
+    myPhotographer = photographers.find(
         (photographer) => identifier == photographer.id
-    )
-    console.log(myPhotographer);
-
-
-
         
-}
+    )
+    // Store data of selected photographer
+    console.log(myPhotographer);
+    photo = new Photographer(myPhotographer);
+    
+        photographerHeader.innerHTML += photo.createPhotographerHeader();
+    
+
+    
+    
+} 
+
+
+
+
+
+
+
 
 // Init 
 const init = async () => {
