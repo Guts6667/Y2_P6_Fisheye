@@ -6,8 +6,51 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 30px;
 }
 
+.photo-section{
+    margin-top: 20px;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: 30% 30% 30%;
+    margin: 0 100px;
+}
+/* article img{
+    width: 250px;
+    height: 250px;
+} */
+.div-bg{
+    width: 250px;
+    height : 250px;
+}
+
+
+.photograph-thumbnail :only-child{
+   
+    justify-content: center;
+}
+
+.photograph-thumbnail{
+    display: flex;
+    justify-content: center;
+}
+.photograph-thumbnail img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.photographer_tagline {
+    font-size: 10px;
+}
+.photographer_name {
+    color: #DE573C;
+}
 .contact_button {
     font-size: 20px;
     font-weight: bold;
@@ -19,6 +62,7 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    justify-self: center;
 }
 
 .modal {

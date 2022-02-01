@@ -1,14 +1,15 @@
 // 1 Récupérer les données du photographe
 
 // 2 Les stocker dans un objet photographe
-let photo;
+let myMedias;
 let myPhotographer;
 const contactButton = document.querySelector('.contact_button')
-const photographerHeader = document.querySelector('header')
+const photographerHeader = document.querySelector('#photographerHeader')
+const photographerSection = document.querySelector('#photoSection');
 const displayPhotographerData = async()=> {
 
-    const { photographers, media } = await getData();
-    console.log(photographers, media);
+    const { photographers, medias } = await getData();
+    console.log(photographers, medias);
 
     const params = new URLSearchParams(document.location.search.substring(1));
     const identifier = params.get("id")
@@ -20,14 +21,32 @@ const displayPhotographerData = async()=> {
         (photographer) => identifier == photographer.id
         
     )
+    
     // Store data of selected photographer
     console.log(myPhotographer);
-    photo = new Photographer(myPhotographer);
+    myPhotographer = new Photographer(myPhotographer);
     
-        photographerHeader.innerHTML += photo.createPhotographerHeader();
+       photographerHeader.insertAdjacentHTML('afterbegin', myPhotographer.createPhotographerHeaderLeft());
+       photographerHeader.insertAdjacentHTML('beforeend', myPhotographer.createPhotographerHeaderRight());
     
+       
+       // Filter datas in medias in order to keep only those matching the photographerId
+        myMedias = medias.filter(media => media.photographerId == identifier);
+        // Create new Media for each filtered media
+        myMedias.forEach(media => {
+            let mediaModel = new Media(media);
+            console.log(mediaModel);
+            let mediaName = mediaModel.getName(myPhotographer.name)
+            console.log(mediaName);
+            photographerSection.innerHTML += mediaModel.displayPhotoCard(mediaName);
 
-    
+        
+        });
+        
+           
+       
+  
+
     
 } 
 

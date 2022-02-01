@@ -42,10 +42,10 @@ class Photographer {
         `
     }
 
-    createPhotographerHeader(){
+    createPhotographerHeaderLeft(){
         return `
-        <div>
-            <div>
+        <div class ="header-box" >
+            <div class ="photographer_name">
                 <h2>${this.name}</h2>
             </div> 
             <div>
@@ -55,10 +55,17 @@ class Photographer {
                     <p>${this.tagline}</p>
             </div>
         </div>
-        ${contactButton}
-        <div class = "photographer_thumbnail">
+        `
+    }
+    createPhotographerHeaderRight(){
+        return `
+        <div class = "photograph-thumbnail header-box">
             <img src="../../assets/Sample_Photos/PhotographersIDPhotos/${this.portrait}" >
         </div>
+        `
+    }
+    createPhotoArticle(){
+        return `
         `
     }
 }
