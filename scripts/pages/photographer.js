@@ -33,24 +33,20 @@ const displayPhotographerData = async()=> {
        // Filter datas in medias in order to keep only those matching the photographerId
         myMedias = medias.filter(media => media.photographerId == identifier);
         // Create new Media for each filtered media
-        myMedias.forEach(media => {
-            let mediaModel = new Media(media);
-            console.log(mediaModel);
-            let mediaName = mediaModel.getName(myPhotographer.name)
-            console.log(mediaName);
-            photographerSection.innerHTML += mediaModel.displayPhotoCard(mediaName);
-
-        
-        });
-        
-           
-       
-  
-
-    
+        updateMedia(myMedias);
 } 
 
 
+const updateMedia = (myMedias) => {
+    
+    myMedias.forEach(media => {
+        let mediaModel = new Media(media);
+        console.log(mediaModel);
+        let mediaName = mediaModel.getName(myPhotographer.name)
+        console.log(mediaName);
+        photographerSection.innerHTML += mediaModel.displayPhotoCard(mediaName);
+    });
+}
 
 
 
