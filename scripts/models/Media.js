@@ -28,7 +28,6 @@ class Photo {
         const name = nameToCut.split(' ')[0];
         return name
     }
-    // Comment récupérer le nom du photographe?
     displayPhotoCard(name){
         return`
         <article>
@@ -53,7 +52,7 @@ class Video {
         this.id = data.id
         this.photographerId = data.photographerId
         this.title = data.title
-        this.image = data.image
+        this.video = data.video
         this.likes = data.likes
         this.date = data.date
         this.price = data.price
@@ -69,7 +68,9 @@ class Video {
         return`
         <article>
             <div>
-                <img src="../../assets/Sample_Photos/${name}/${this.image}" alt="${this.title}" style = "width : 250px; height : 250px;">
+                <video style = "width : 250px; height : 250px;" controls>
+                    <source src= "../../assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4">
+                </video>
             </div>
             <div>
                 <div>

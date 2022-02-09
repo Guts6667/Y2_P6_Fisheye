@@ -13,13 +13,14 @@
     margin-bottom: 30px;
 }
 
+
 .photo-section{
     margin-top: 20px;
     display: grid;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     grid-template-columns: 30% 30% 30%;
-    margin: 0 100px;
+    margin: 0 10%;
 }
 /* article img{
     width: 250px;
@@ -30,6 +31,41 @@
     height : 250px;
 }
 
+.triSection{
+    display: flex;
+    margin-left: 100px;
+   
+}
+.triSection :only-child{
+    margin: 10px 10px;
+}
+
+.triButton{
+    background: #901C1C;
+    color: white;
+    border-radius: 5%;
+    padding: 2px 2px;
+    display: flex;
+    flex-direction: column;
+    align-items:stretch;
+}
+.test{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+.optionButton{
+    margin: 5px;
+    padding: 7px 0;
+    display: flex;
+}
+.optionButton :hover{
+    cursor: pointer;
+}
+.dateButton{
+    border-top: 1px  solid white;
+    border-bottom: 1px  solid white;
+}
 
 .photograph-thumbnail :only-child{
    
