@@ -19,3 +19,20 @@ Sur la page photographe je dois savoir sur quel photographer j'ai cliqué avant.
 
 
 // Se concentrer sur les fonctions liées aux tableaux.
+
+
+
+Fonction Like générale
+=> calcule les likes, les affiche en bas à droite
+
+Je clique = incrémentation
+Deuxième clique = annulation de l'incrémentation
+
+Utiliser un data set pour changer la valeur en true ou false
+
+-----------
+Lightbox
+Créer une zone html contenant la lighbox masquée par défaut
+Ajouter event sur chaque média pour l'afficher
+Récupérer par exemple le titre de la photo pour savoir sur laquelle j'ai cliqué
+Parcourir le tableau de la lightbox et je démasque le bon media
