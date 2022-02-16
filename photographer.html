@@ -10,48 +10,25 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="./index.html">
+        <img src="assets/images/logo.png" class="logo" />
+      </a>
     </header>
     <main id="main">
       <div class="photograph-header" id="photographerHeader">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
-      <!-- Tri Section -->
-      <!-- <div class="triSection">
-        <div>
-          <p>Trier par</p>
-        </div>
-        <!-- Bouton Trie -->
-        <!-- <div class="triButton">
-          <div class="optionButton">
-            <div id="popularityOption">
-              <span>Popularité</span>
-            </div>
-            <div>
-              <i class="fas fa-chevron-up" id="arrowUp"></i>
-              <i class="fas fa-chevron-down" style="display:none" id="arrowDown"></i>
-            </div>
-          </div>
-          <div class="optionButton dateButton"  id="dateOption" style="display:none">
-            <span>Date</span>
-          </div>
-          <div class="optionButton"  id="titleOption" style="display:none">
-            <span>Titre</span>
-          </div>
-        </div>
-      </div> --> -->
-
        <div class="triSection">
         <div>
           <p>Trier par</p>
         </div>
         <!-- Bouton Trie -->
         <div class="triButton test">
-          <div>
+          <div id="optionContainer">
             <div class=" optionButton "  id="popularityOption">
               <span>Popularité</span>
             </div>
-            <div class="optionButton dateButton"  id="dateOption" style="display:none">
+            <div class="optionButton"  id="dateOption" style="display:none">
               <span>Date</span>
             </div>
             <div class="optionButton"  id="titleOption" style="display:none">
@@ -64,9 +41,6 @@
           </div>
         </div>
       </div> 
-
-
-
       <!-- Display photo here -->
       <div id="photoSection" class="photo-section">
         <!-- Section Tri -->

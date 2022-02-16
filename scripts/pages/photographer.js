@@ -5,19 +5,25 @@ let arrowDown = document.getElementById("arrowDown");
 let dateOption = document.getElementById("dateOption");
 let titleOption = document.getElementById("titleOption");
 let popularityOption = document.getElementById("popularityOption")
+let optionContainer = document.getElementById("optionContainer");
+
+let options = [popularityOption, titleOption, dateOption];
 
 arrowUp.addEventListener("click", () =>{
     arrowUp.style = "display : none";
-    arrowDown.style = "display : inline";
-    titleOption.style = "display: block"
-    dateOption.style = "display: block"
+    arrowDown.style = "display : inline";  
+    options[0].style = "display : block";
+    options[1].style = "display : block";
+    options[2].style = "display : block";
 })
 
 arrowDown.addEventListener("click", () => {
     arrowUp.style = "display : inline";
     arrowDown.style = "display : none";
-    titleOption.style = "display: none"
-    dateOption.style = "display: none"
+    options[0].style = "display : block";
+    options[1].style = "display : none;";
+    options[2].style = "display : none";
+
 })
 
 // ---------------------------------------------------------------
@@ -67,40 +73,60 @@ const displayPhotographerData = async()=> {
                // Créer un array stockant les medias
 
 
-            //    createMediaArray(myMedias, medias, mediasArray)
 
         
-            //Sort Media by Date
-               let sortedMediasByDate = myMedias.sort(function (a, b) {
-                   var dateA = new Date(a.date), dateB = new Date(b.date)
-                   return dateA - dateB
-               });
-               
-              let sortedMediasByLikes = myMedias?.sort((a, b) => (a.likes > b.likes ? -1 : 1))
-              console.log(sortedMediasByLikes);
-       
+   
              
  
-               dateOption.addEventListener('click', () => {
-                   titleOption.style = 'display: none';
-                   popularityOption.style = 'display: none';
 
-                updateMedia(sortedMediasByDate)
-               })
 
 } 
+const filter = () => {
+  // Filter by Date
+  dateOption.addEventListener("click", () => {
+    let mediasByDate = myMedias.sort(function (a, b) {
+        let dateA = new Date(a.date), dateB = new Date(b.date)
+        return dateA - dateB
+    });
+    updateMedia(mediasByDate);
+    optionContainer.insertAdjacentElement("afterbegin", dateOption);
+    // Get index of option in array then delete it and insert it at the beginning of the array
+    updateOptions(dateOption);
+    
+})
+  
+   
+// Filter by Likes
+popularityOption.addEventListener("click", () => {
+    let mediasByLikes = myMedias?.sort((a, b) => (a.likes > b.likes ? -1 : 1))
+    updateMedia(mediasByLikes);
+    optionContainer.insertAdjacentElement("afterbegin", popularityOption);
+    updateOptions(popularityOption)
+})
 
 
+titleOption.addEventListener("click", () => {
+    let mediasByTitle = myMedias?.sort((a, b) => (a.title < b.title ? -1 : 1));
+    updateMedia(mediasByTitle);
+    optionContainer.insertAdjacentElement("afterbegin", titleOption);
+    updateOptions(titleOption);
+})
+}
+
+  
+  
 
 
-// Fonction createMediaArray 
-// createMediaArray = (myMedias, medias, mediasArray) => {
+const updateOptions = (option) => {
+    let index = options.indexOf(option);
+                options.splice(index, 1);
+                options.unshift(option);
+    optionContainer.children[0].classList.remove('border-button');
+    optionContainer.children[2].classList.remove('border-button');
+    optionContainer.children[1].classList.add('border-button');
+    
+}
 
-//     myMedias.forEach(medias => {
-//         mediasArray.push(medias);
-//     });
-//     return mediasArray;
-// }
 
 
 // Fonction UpdateMedia => Retourne les media séléctionnés et créer les articles html
@@ -123,6 +149,7 @@ const init = async () => {
 
     displayPhotographerData();
 
+    filter();
     }
     
     init();

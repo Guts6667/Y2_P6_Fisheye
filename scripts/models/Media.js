@@ -34,12 +34,18 @@ class Photo {
             <div>
                 <img src="../../assets/Sample_Photos/${name}/${this.image}" alt="${this.title}" style = "width : 250px; height : 250px;">
             </div>
-            <div>
+            <div class = "like-box">
                 <div>
                     <h4>${this.title}</h4>
                 </div>
-                <div>
-                    <h5>${this.likes}</h5>
+                <div class = "like-box">
+                    <div>
+                        <h5>${this.likes}</h5>
+                    </div>
+                    <div>
+                        <i class="far fa-heart"></i>
+                        <i class="far fa-heart" style = "display : none;"></i>
+                    </div>
                 </div>
             </div>
         </article>`
