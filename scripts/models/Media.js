@@ -40,11 +40,11 @@ class Photo {
                 </div>
                 <div class = "like-box">
                     <div>
-                        <h5>${this.likes}</h5>
+                        <h5 class ="likes">${this.likes}</h5>
                     </div>
                     <div>
-                        <i class="far fa-heart"></i>
-                        <i class="far fa-heart" style = "display : none;"></i>
+                        <i class="far fa-heart heart" ></i>
+                        <i class="fas fa-heart fullHeart"></i>
                     </div>
                 </div>
             </div>
@@ -78,14 +78,21 @@ class Video {
                     <source src= "../../assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4">
                 </video>
             </div>
+            <div class = "like-box">
             <div>
+                <h4>${this.title}</h4>
+            </div>
+            <div class = "like-box">
                 <div>
-                    <h4>${this.title}</h4>
+                    <h5 class ="likes">${this.likes}</h5>
                 </div>
                 <div>
-                    <h5>${this.likes}</h5>
+                    <i class="far fa-heart heart" ></i>
+                    <i class="fas fa-heart fullHeart"></i>
                 </div>
             </div>
+        </div>
         </article>`
     }
+
 }

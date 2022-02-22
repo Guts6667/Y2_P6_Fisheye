@@ -168,3 +168,23 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+.heart{
+    color: #901C1C;
+}
+.fullHeart{
+    color: #901C1C;
+}
+.thumbnail{
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 4;
+    position: fixed;
+    right: 5%;
+    bottom: 0;
+    background-color: #DB8876;
+    width: 17%;
+    padding: 10px 5px;
+    border-radius: 5px;
+    text-align: center;
+}

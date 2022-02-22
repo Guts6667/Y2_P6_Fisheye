@@ -6,9 +6,10 @@ let dateOption = document.getElementById("dateOption");
 let titleOption = document.getElementById("titleOption");
 let popularityOption = document.getElementById("popularityOption")
 let optionContainer = document.getElementById("optionContainer");
-
 let options = [popularityOption, titleOption, dateOption];
 
+// -------------------------------------------
+// Event Menu filter
 arrowUp.addEventListener("click", () =>{
     arrowUp.style = "display : none";
     arrowDown.style = "display : inline";  
@@ -74,13 +75,78 @@ const displayPhotographerData = async()=> {
 
 
 
+        // Problème avec les likes au moment de filtrer les medias
+
+    let heart = document.querySelectorAll(".heart")
+    let fullHeart = document.querySelectorAll(".fullHeart")
+    let likes = document.querySelectorAll('.likes')
+    let likesArray =[];
+
+    // Hide fullHeart
+    fullHeart.forEach(element => {
+        element.setAttribute('style', 'display : none')
+    });
+
+    // Push all likes in an array
+    likes.forEach(element => {
+    likesArray.push(element.innerHTML);
+    });
+    // Turn the likes into numbers
+    likesArray = likesArray.map(element => parseInt(element));
+    let sumLikes = likesArray.reduce((a, b) => a + b, 0);
+
+    // Function update Thumbnail
+    let updateThumb = ()=> {
+        let thumbnail = document.querySelector('.thumbnail')
+        thumbnail.innerHTML= 
+        ` <div>
+             <span>${sumLikes}</span>
+             <i class="fas fa-heart"></i>
+         </div>
+         <div>
+             <span>${myPhotographer.price}€ / jour</span>
+         </div>
+        `
+    }
+    updateThumb()
+
+    // Update hearts ++
+    heart.forEach(element => {
+       
+        element.addEventListener("click", () =>{
+            element.setAttribute('style', 'display : none')
+            fullHeart = element.nextElementSibling.setAttribute('style', 'display : inline;')
+            let like = element.closest('div').previousElementSibling.firstElementChild
+            like.innerHTML ++
+            sumLikes ++
+            updateThumb()
+        })
         
-   
-             
+    })
+    // Update hearts --
+    fullHeart.forEach(element => {
+        element.addEventListener("click", () =>{
+            element.setAttribute('style', 'display : none')
+            heart = element.previousElementSibling.setAttribute("style", 'display : inline;')
+            let like = element.closest('div').previousElementSibling.firstElementChild
+            like.innerHTML--
+            sumLikes --
+            updateThumb()
+        })
+    })
  
 
+ 
+  
+ 
+    
 
+    
+    
 } 
+
+// ---------------------------------------------------------------------------------
+// Filter fonction
 const filter = () => {
   // Filter by Date
   dateOption.addEventListener("click", () => {
@@ -112,11 +178,8 @@ titleOption.addEventListener("click", () => {
     updateOptions(titleOption);
 })
 }
-
-  
-  
-
-
+// ---------------------------------------------------------------------------------
+// Update options in menu
 const updateOptions = (option) => {
     let index = options.indexOf(option);
                 options.splice(index, 1);
@@ -128,7 +191,7 @@ const updateOptions = (option) => {
 }
 
 
-
+// ---------------------------------------------------------------------------------
 // Fonction UpdateMedia => Retourne les media séléctionnés et créer les articles html
 const updateMedia = (myMedias) => {
     photographerSection.innerHTML = "";
@@ -143,7 +206,7 @@ const updateMedia = (myMedias) => {
 }
 
 
-
+// ---------------------------------------------------------------------------------
 // Init 
 const init = async () => {
 
@@ -153,3 +216,4 @@ const init = async () => {
     }
     
     init();
+  
