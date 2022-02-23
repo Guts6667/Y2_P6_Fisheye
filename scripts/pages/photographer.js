@@ -77,49 +77,107 @@ const displayPhotographerData = async()=> {
 
         // Problème avec les likes au moment de filtrer les medias
 
-    let heart = document.querySelectorAll(".heart")
-    let fullHeart = document.querySelectorAll(".fullHeart")
-    let likes = document.querySelectorAll('.likes')
-    let likesArray =[];
+    
 
-    // Hide fullHeart
-    fullHeart.forEach(element => {
-        element.setAttribute('style', 'display : none')
-    });
+    
 
-    // Push all likes in an array
-    likes.forEach(element => {
-    likesArray.push(element.innerHTML);
-    });
-    // Turn the likes into numbers
-    likesArray = likesArray.map(element => parseInt(element));
-    let sumLikes = likesArray.reduce((a, b) => a + b, 0);
-
-    // Function update Thumbnail
-    let updateThumb = ()=> {
-        let thumbnail = document.querySelector('.thumbnail')
-        thumbnail.innerHTML= 
-        ` <div>
-             <span>${sumLikes}</span>
-             <i class="fas fa-heart"></i>
-         </div>
-         <div>
-             <span>${myPhotographer.price}€ / jour</span>
-         </div>
-        `
-    }
-    updateThumb()
-
-    // Update hearts ++
-    heart.forEach(element => {
+  
+    likeFunc();
+    
+ 
+    // Récupérer mes src
+    const lightboxFunc = () => {
+        let articles = document.querySelectorAll('.media');
+        console.log(articles);
+        lightboxSection = document.querySelector('.lightbox');
        
+      
+          articles.forEach(article => {
+              article.addEventListener("click", (e) =>{
+                  // Récupérer les sources de mes targets
+                  // Faire un for each et comparer les images de la lightbox pour démasquer la bonne.
+                  // Au click sur la flèche, faire un foreach sur la lightbox, utiliser les index pour se déplacer.
+                  // Permettre la navigation avec les flèches du clavier. 
+                  console.log(e.target);
+                  console.log(article.firstElementChild.firstElementChild);
+                  let objectName = article.lastElementChild.firstElementChild.firstElementChild.innerHTML;
+                  
+                let  myMedia = myMedias.filter(media => media.title == objectName);
+                console.log( myMedia[0]);
+                myMedia = new Media(myMedia[0])
+                let myPhotoName = myPhotographer.name.split(' ')[0];
+                lightboxSection.setAttribute('style', 'display : flex')
+                lightboxSection.innerHTML = "";
+                lightboxSection.innerHTML += myMedia.displayLightBox(myPhotoName);
+                
+                let crossBtn = document.querySelector('.crossBtn');
+                  crossBtn.addEventListener('click', () => {
+                  lightboxSection.setAttribute('style', 'display : none')
+              })
+              })
+      
+              
+          })
+    }
+lightboxFunc();
+
+    
+   
+ 
+ 
+    
+
+    
+    
+} 
+
+
+const likeFunc = () => {
+let heart = document.querySelectorAll(".heart")
+let fullHeart = document.querySelectorAll(".fullHeart")
+let likes = document.querySelectorAll('.likes')
+let likesArray =[];
+
+// Hide fullHeart
+fullHeart.forEach(element => {
+    element.setAttribute('style', 'display : none')
+});
+
+// Push all likes in an array
+likes.forEach(element => {
+likesArray.push(element.innerHTML);
+});
+// Turn the likes into numbers
+likesArray = likesArray.map(element => parseInt(element));
+let sumLikes = likesArray.reduce((a, b) => a + b, 0);
+
+// Function update Thumbnail
+let updateThumb = ()=> {
+    let thumbnail = document.querySelector('.thumbnail')
+    thumbnail.innerHTML= 
+    ` <div>
+         <span>${sumLikes}</span>
+         <i class="fas fa-heart"></i>
+     </div>
+     <div>
+         <span>${myPhotographer.price}€ / jour</span>
+     </div>
+    `
+}
+updateThumb()
+    // Update hearts ++
+    console.log("Test 1");
+    heart.forEach(element => {
+        
         element.addEventListener("click", () =>{
+            console.log("Test 2");
             element.setAttribute('style', 'display : none')
             fullHeart = element.nextElementSibling.setAttribute('style', 'display : inline;')
             let like = element.closest('div').previousElementSibling.firstElementChild
             like.innerHTML ++
             sumLikes ++
             updateThumb()
+        
         })
         
     })
@@ -134,16 +192,7 @@ const displayPhotographerData = async()=> {
             updateThumb()
         })
     })
- 
-
- 
-  
- 
-    
-
-    
-    
-} 
+}
 
 // ---------------------------------------------------------------------------------
 // Filter fonction
@@ -158,6 +207,7 @@ const filter = () => {
     optionContainer.insertAdjacentElement("afterbegin", dateOption);
     // Get index of option in array then delete it and insert it at the beginning of the array
     updateOptions(dateOption);
+    likeFunc();
     
 })
   
@@ -168,6 +218,7 @@ popularityOption.addEventListener("click", () => {
     updateMedia(mediasByLikes);
     optionContainer.insertAdjacentElement("afterbegin", popularityOption);
     updateOptions(popularityOption)
+    likeFunc()
 })
 
 
@@ -176,6 +227,7 @@ titleOption.addEventListener("click", () => {
     updateMedia(mediasByTitle);
     optionContainer.insertAdjacentElement("afterbegin", titleOption);
     updateOptions(titleOption);
+    likeFunc()
 })
 }
 // ---------------------------------------------------------------------------------
@@ -193,17 +245,23 @@ const updateOptions = (option) => {
 
 // ---------------------------------------------------------------------------------
 // Fonction UpdateMedia => Retourne les media séléctionnés et créer les articles html
+
 const updateMedia = (myMedias) => {
     photographerSection.innerHTML = "";
     myMedias.forEach(media => {
         let mediaModel = new Media(media);
         let mediaName = mediaModel.getName(myPhotographer.name)
         photographerSection.innerHTML += mediaModel.displayPhotoCard(mediaName);
+        // J'appelle ma fonction display lightbox => Elles sont toutes masquées par défaut.
 
 
     });
 
+
 }
+
+
+// Dans
 
 
 // ---------------------------------------------------------------------------------

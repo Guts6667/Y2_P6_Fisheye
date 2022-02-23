@@ -32,7 +32,7 @@ class Photo {
         return`
         <article>
             <div>
-                <img src="../../assets/Sample_Photos/${name}/${this.image}" alt="${this.title}" style = "width : 250px; height : 250px;">
+                <img src="../../assets/Sample_Photos/${name}/${this.image}" alt="${this.title}" style = "width : 250px; height : 250px;" class = "media">
             </div>
             <div class = "like-box">
                 <div>
@@ -49,6 +49,24 @@ class Photo {
                 </div>
             </div>
         </article>`
+    }
+
+    displayLightBox(name){
+       return `
+        <div>
+           <i class="fas fa-chevron-left"></i>
+        </div>
+        <div>
+            <img src="../../assets/Sample_Photos/${name}/${this.image}" alt="${this.title}"  class="lightboxImg">
+            <h4>${this.title}</h4>
+        </div>
+        <div>
+           <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class = "crossBtn">
+           <i class="fas fa-times"></i>
+        </div>
+        `
     }
 }
 
@@ -74,8 +92,8 @@ class Video {
         return`
         <article>
             <div>
-                <video style = "width : 250px; height : 250px;" controls>
-                    <source src= "../../assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4">
+                <video style = "width : 250px; height : 250px;" controls class = "media">
+                    <source src= "../../assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4" >
                 </video>
             </div>
             <div class = "like-box">
@@ -94,5 +112,24 @@ class Video {
         </div>
         </article>`
     }
+    displayLightBox(name){
+        return `
+         <div>
+            <i class="fas fa-chevron-left"></i>
+         </div>
+         <div>
+            <video class="lightboxImg" controls>
+                <source src= "../../assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4">
+            </video>
+            <h4>${this.title}</h4>
+         </div>
+         <div>
+            <i class="fas fa-chevron-right"></i>
+         </div>
+         <div class = "crossBtn">
+            <i class="fas fa-times"></i>
+         </div>
+         `
+     }
 
 }
