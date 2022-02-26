@@ -28,13 +28,14 @@ class Photo {
         const name = nameToCut.split(' ')[0];
         return name
     }
+
     displayPhotoCard(name){
         return`
         <article>
             <div>
-                <img src="../../assets/Sample_Photos/${name}/${this.image}" alt="${this.title}" style = "width : 250px; height : 250px;" class = "media">
+                <img src="../../assets/Sample_Photos/${name}/${this.image}" alt="${this.title}"  class = "media">
             </div>
-            <div class = "like-box">
+            <div class = "legend">
                 <div>
                     <h4>${this.title}</h4>
                 </div>
@@ -51,23 +52,14 @@ class Photo {
         </article>`
     }
 
-    displayLightBox(name){
-       return `
-        <div>
-           <i class="fas fa-chevron-left"></i>
-        </div>
-        <div>
-            <img src="../../assets/Sample_Photos/${name}/${this.image}" alt="${this.title}"  class="lightboxImg">
-            <h4>${this.title}</h4>
-        </div>
-        <div>
-           <i class="fas fa-chevron-right"></i>
-        </div>
-        <div class = "crossBtn">
-           <i class="fas fa-times"></i>
-        </div>
-        `
-    }
+    displayLightbox(name){
+        return `
+         <div class="lightboxImg">
+             <img src="../../assets/Sample_Photos/${name}/${this.image}" alt="${this.title}"  >
+             <h4>${this.title}</h4>
+         </div>
+         `
+     }
 }
 
 // Class Video
@@ -92,11 +84,11 @@ class Video {
         return`
         <article>
             <div>
-                <video style = "width : 250px; height : 250px;" controls class = "media">
+                <video  controls class = "media">
                     <source src= "../../assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4" >
                 </video>
             </div>
-            <div class = "like-box">
+            <div class = "legend">
             <div>
                 <h4>${this.title}</h4>
             </div>
@@ -112,22 +104,13 @@ class Video {
         </div>
         </article>`
     }
-    displayLightBox(name){
+    displayLightbox(name){
         return `
-         <div>
-            <i class="fas fa-chevron-left"></i>
-         </div>
-         <div>
-            <video class="lightboxImg" controls>
+         <div class="lightboxImg">
+            <video  controls>
                 <source src= "../../assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4">
             </video>
             <h4>${this.title}</h4>
-         </div>
-         <div>
-            <i class="fas fa-chevron-right"></i>
-         </div>
-         <div class = "crossBtn">
-            <i class="fas fa-times"></i>
          </div>
          `
      }
