@@ -1,31 +1,3 @@
-// Filter button
-let arrowUp = document.getElementById("arrowUp");
-let arrowDown = document.getElementById("arrowDown");
-let dateOption = document.getElementById("dateOption");
-let titleOption = document.getElementById("titleOption");
-let popularityOption = document.getElementById("popularityOption")
-let optionContainer = document.getElementById("optionContainer");
-let options = [popularityOption, titleOption, dateOption];
-let lightboxSection = document.querySelector('.lightbox');
-let lightboxMedia = document.querySelector('.lightbox-media');
-// -------------------------------------------
-// Event Menu filter
-arrowUp.addEventListener("click", () =>{
-    arrowUp.style = "display : none";
-    arrowDown.style = "display : inline";  
-    options[0].style = "display : block";
-    options[1].style = "display : block";
-    options[2].style = "display : block";
-})
-
-arrowDown.addEventListener("click", () => {
-    arrowUp.style = "display : inline";
-    arrowDown.style = "display : none";
-    options[0].style = "display : block";
-    options[1].style = "display : none;";
-    options[2].style = "display : none";
-})
-
 // ---------------------------------------------------------------
 // Déclarations de variables
 let myMedias;
@@ -34,6 +6,9 @@ const contactButton = document.querySelector('.contact_button')
 const photographerHeader = document.querySelector('#photographerHeader')
 const photographerSection = document.querySelector('#photoSection');
 let mediasArray = [];
+let lightboxSection = document.querySelector('.lightbox');
+let lightboxMedia = document.querySelector('.lightbox-media');
+
 
 // ---------------------------------------------------------------
 // Display the photographers
@@ -59,139 +34,87 @@ const displayPhotographerData = async()=> {
 
     // Create new Media for each filtered media
     updateMedia(myMedias);
+
 // ---------------------------------------------------------------
     // Call likeFunc
     likeFunc();
-
-// ---------------------------------------------------------------
-
-
-    //Create Lightbox Function
-
-createLightbox();
-
-
-// ---------------------------------------------------------------
-
-
-
-
    
+// ---------------------------------------------------------------
+    //Create Lightbox Function
+    createLightbox();
 
+// ---------------------------------------------------------------
+// Faire un for each et comparer les images de la lightbox pour démasquer la bonne.
+// Au click sur la flèche, faire un foreach sur la lightbox, utiliser les index pour se déplacer.
+// Permettre la navigation avec les flèches du clavier. 
+// J'ouvre ma lightbox et je démasque les médias qui correspondent à mes articles: createLightbox()
+// J'utilise un i++ ou i-- pour naviguer dans mon tableau de media et afficher le suivant ou précédent
+// Je n'oublie pas de masquer remasquer tous les autres medias avant d'afficher le nouveau média : maskMediaBox()
+    
+// Ici, je récupère les images et vidéos sur ma pages et je les stock dans un array.
+let mediasArray = [];
     const getMediaTargets = () => {
-
-let targetMedias = document.querySelectorAll('article');
+        let targetMedias = document.querySelectorAll('article');
         targetMedias.forEach(targetMedia => {
             // Récupérer les sources de mes targets
           targetMedia = targetMedia.firstElementChild.firstElementChild;
-          console.log(targetMedia);
-           // Faire un for each et comparer les images de la lightbox pour démasquer la bonne.
-    // Au click sur la flèche, faire un foreach sur la lightbox, utiliser les index pour se déplacer.
-    // Permettre la navigation avec les flèches du clavier. 
-            
+        mediasArray.push(targetMedia)
         })
-    }
-    getMediaTargets();    
+        return mediasArray
+    }  
+    mediasArray = getMediaTargets();
 
-    // J'ouvre ma lightbox et je démasque les médias qui correspondent à mes articles: createLightbox()
-// J'utilise un i++ ou i-- pour naviguer dans mon tableau de media et afficher le suivant ou précédent
-// Je n'oublie pas de masquer remasquer tous les autres medias avant d'afficher le nouveau média : maskMediaBox()
-} 
-
-// ---------------------------------------------------------------
-// Like Function
-const likeFunc = () => {
-let heart = document.querySelectorAll(".heart")
-let fullHeart = document.querySelectorAll(".fullHeart")
-let likes = document.querySelectorAll('.likes')
-let likesArray =[];
-
-// Hide fullHeart
-fullHeart.forEach(element => {
-    element.setAttribute('style', 'display : none')
-});
-
-// Push all likes in an array
-likes.forEach(element => {
-likesArray.push(element.innerHTML);
-});
-
-// Turn the likes into numbers
-likesArray = likesArray.map(element => parseInt(element));
-let sumLikes = likesArray.reduce((a, b) => a + b, 0);
-
-// Function update Thumbnail
-let updateThumb = ()=> {
-    let thumbnail = document.querySelector('.thumbnail')
-    thumbnail.innerHTML= 
-    ` <div>
-         <span>${sumLikes}</span>
-         <i class="fas fa-heart"></i>
-     </div>
-     <div>
-         <span>${myPhotographer.price}€ / jour</span>
-     </div>
-    `
+// Puis ouvrir le bon media
+let mediaBoxArray = []
+let getMediaboxArray = () => {
+    
+    let mediasBox = document.querySelectorAll('.lightboxImg')
+    mediasBox.forEach(mediaBox => {
+        mediaBox = mediaBox;
+        mediaBoxArray.push(mediaBox)
+    })
+    return mediaBoxArray;
 }
-updateThumb()
-    // Update hearts ++
-    heart.forEach(element => {
+getMediaboxArray()
+let currentLightbox;
+const openLightbox = () => {
+    mediasArray.forEach(media => {
+        media.addEventListener('click', () => {
+            maskMediasbox();
+            let mediaIndex = mediasArray.indexOf(media);
+            lightboxSection.setAttribute('style', 'display : flex')
+            let myMediaBox = mediaBoxArray[mediaIndex];
+            myMediaBox.classList.add('visible')
+            currentLightbox = document.querySelector('.visible');
+        })
+    })
+}
+openLightbox()
+
+
+const lightboxNav = () => {
+    
+    let navRight = document.querySelector('.fa-chevron-right').parentElement;
+    let navLeft = document.querySelector('.fa-chevron-left').parentElement;
+    
+    navLeft.addEventListener('click', (e) => {
+        currentLightbox.classList.add('hidden');
+        currentLightbox.classList.remove('visible');
+        currentLightbox.previousElementSibling.classList.add('visible')
         
-        element.addEventListener("click", () =>{
-            element.setAttribute('style', 'display : none')
-            fullHeart = element.nextElementSibling.setAttribute('style', 'display : inline;')
-            let like = element.closest('div').previousElementSibling.firstElementChild
-            like.innerHTML ++
-            sumLikes ++
-            updateThumb()
-        })
     })
-    // Update hearts --
-    fullHeart.forEach(element => {
-        element.addEventListener("click", () =>{
-            element.setAttribute('style', 'display : none')
-            heart = element.previousElementSibling.setAttribute("style", 'display : inline;')
-            let like = element.closest('div').previousElementSibling.firstElementChild
-            like.innerHTML--
-            sumLikes --
-            updateThumb()
-        })
+
+    navRight.addEventListener('click', () => {
+        currentLightbox.classList.add('hidden');
+        currentLightbox.classList.remove('visible');
+        currentLightbox.nextElementSibling.classList.add('visible')
     })
-}
+    getMediaboxArray();
 
-// ---------------------------------------------------------------------------------
-// Filter fonction
-const filter = () => {
-  // Filter by Date
-  dateOption.addEventListener("click", () => {
-    let mediasByDate = myMedias.sort(function (a, b) {
-        let dateA = new Date(a.date), dateB = new Date(b.date)
-        return dateA - dateB
-    });
-    updateMedia(mediasByDate);
-    optionContainer.insertAdjacentElement("afterbegin", dateOption);
-    // Get index of option in array then delete it and insert it at the beginning of the array
-    updateOptions(dateOption);
-    likeFunc();
-})
-  
-// Filter by Likes
-popularityOption.addEventListener("click", () => {
-    let mediasByLikes = myMedias?.sort((a, b) => (a.likes > b.likes ? -1 : 1))
-    updateMedia(mediasByLikes);
-    optionContainer.insertAdjacentElement("afterbegin", popularityOption);
-    updateOptions(popularityOption)
-    likeFunc()
-})
-
-titleOption.addEventListener("click", () => {
-    let mediasByTitle = myMedias?.sort((a, b) => (a.title < b.title ? -1 : 1));
-    updateMedia(mediasByTitle);
-    optionContainer.insertAdjacentElement("afterbegin", titleOption);
-    updateOptions(titleOption);
-    likeFunc()
-})
 }
+lightboxNav()
+
+} 
 
 // ---------------------------------------------------------------------------------
 // Update options in menu
@@ -223,6 +146,7 @@ const closeLightBox = () => {
     closeBtn.addEventListener('click', () => {
         lightboxSection.setAttribute('style', 'display : none')
     })
+    maskMediasbox()
 }
 
 // ---------------------------------------------------------------------------------
@@ -243,8 +167,9 @@ const createLightbox = () => {
 const maskMediasbox = () => {
     let mediasBox = document.querySelectorAll('.lightboxImg')
     mediasBox.forEach(mediaBox => {
-        console.log(mediaBox);
-        mediaBox.setAttribute('style', 'display : none');
+        mediaBox.classList.remove('visible');
+        mediaBox.classList.add('hidden');
+        
     })
 }
 
@@ -252,12 +177,8 @@ const maskMediasbox = () => {
 // ---------------------------------------------------------------------------------
 // Init 
 const init = async () => {
-
     displayPhotographerData();
-
-    filter();
     closeLightBox()
-    }
-    
-    init();
+}
+init();
   

@@ -23,7 +23,7 @@
           <p>Trier par</p>
         </div>
         <!-- Bouton Trie -->
-        <div class="triButton test">
+        <div class="triButton">
           <div id="optionContainer">
             <div class=" optionButton "  id="popularityOption">
               <span>Popularité</span>
@@ -35,9 +35,9 @@
               <span>Titre</span>
             </div>
           </div>
-          <div>
-            <i class="fas fa-chevron-up" id="arrowUp"></i>
-            <i class="fas fa-chevron-down" style="display:none" id="arrowDown"></i>
+          <div >
+            <i class="fas fa-chevron-up cursor-pointer " style="display:none" id="arrowUp"></i>
+            <i class="fas fa-chevron-down cursor-pointer"  id="arrowDown"></i>
           </div>
         </div>
       </div> 
@@ -53,15 +53,31 @@
     <div id="contact_modal">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
+          <h2 class="modalHeader">Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
+				<form
+        id = "form"
+              action="index.html"
+              method="get"
+              onsubmit="return validate();">
+					<div class="formData">
+						<label for="firstName">Prénom</label>
+						<input name="firstName" type="text" placeholder="Renseigner votre prénom" id="firstName" class="text-control">
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <div class="formData">
+            <label for="lastName">Nom</label>
+            <input name="lastName" type="text" placeholder="Renseigner votre nom" id="lastName" class="text-control">
+          </div>
+          <div class="formData">
+            <label for="email">Email</label>
+            <input name="email" type="email" placeholder="jeandupont@gmail.com" id="email" class="text-control">
+          </div>
+          <div class="formData">
+            <label for="message">Votre message</label>
+            <input name="message" type="text" placeholder="Décrivez votre projet" id="message" rows = "2"  class="text-control">
+          </div>
+          <button class="contact_button" id="sumbitBtn">Envoyer</button>
 				</form>
 			</div>
 		</div>
@@ -86,5 +102,7 @@
     <script src="./scripts/models/Photographer.js"></script>
     <script src="./scripts/models/Media.js"></script>
     <script src="./scripts/factories/photographer.js"></script>
+    <script src="./scripts/utils/likeFunc.js"></script>
+    <script src="./scripts/utils/filterFunc.js"></script>
   </body>
 </html>

@@ -41,6 +41,7 @@ article{
 .triSection{
     display: flex;
     margin-left: 100px;
+    margin-bottom: 20px;
    
 }
 .triSection :only-child{
@@ -53,14 +54,13 @@ article{
     border-radius: 5%;
     padding: 2px 2px;
     display: flex;
-    flex-direction: column;
-    align-items:stretch;
-}
-.test{
-    display: flex;
+
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
+    padding-right: 10px;
 }
+
+
 .optionButton{
     margin: 5px;
     padding: 7px 0;
@@ -128,6 +128,11 @@ article{
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    position: fixed;
+    top: 2%;
+    left: 20%;
+    z-index: 35;
+
 }
 
 .modal header {
@@ -144,6 +149,7 @@ article{
     font-weight: normal;
     text-align: center;
 }
+
 
 form {
     display: flex;
@@ -192,7 +198,6 @@ form input {
     text-align: center;
 }
 .lightbox{
-    
     display: none;
     justify-content: space-evenly;
     flex-direction: row;
@@ -205,10 +210,30 @@ form input {
     width: 100%;
     height: 100%;
 }
-.lightboxImg{
-    width: 60%;
-    height: 60% ;
+.lightbox-media{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
 }
+.lightbox-media img{
+    width: 70%;
+    margin: auto ;
+}
+.lightbox-media video{
+    width: 70%;
+    margin: auto;
+   
+}
+.lightbox h4{
+    margin-left: 15%;
+}
+.lightboxImg{
+    display: flex;
+    flex-direction: column;
+}
+
+
 .lightbox:only-child{
     display: flex;
     justify-content: space-between;
@@ -225,6 +250,52 @@ form input {
 }
 
 .media {
-    width: 100%;
-    height: 50%;
+    width: 350px;
+    height: 300px;
+    cursor: pointer;
 }
+img{
+    width: fit-content;
+    height: fit-content;
+}
+.hidden{
+    display: none;
+}
+.visible{
+    display: flex;
+}
+.visible :only-child{
+    width: 50%;
+    height: auto;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.formData[data-error]::after {
+    content: attr(data-error);
+    font-size: 0.9em;
+    font-weight: bold;
+    color: black;
+    display: block;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    text-align: right;
+    line-height: 0.3;
+    opacity: 0;
+    transition: 0.3s;
+  }
+  .formData[data-error-visible="true"]::after {
+    opacity: 1;
+  }
+  .formData[data-error-visible="true"] .text-control {
+    border: 2px solid #e54858;
+  }
+ 
+  .thanksMessage{
+      display: flex;
+      justify-content: center;
+      margin: auto;
+      font-size: 45px;
+      color: black;
+  }

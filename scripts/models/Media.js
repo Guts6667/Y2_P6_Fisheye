@@ -32,7 +32,7 @@ class Photo {
     displayPhotoCard(name){
         return`
         <article>
-            <div>
+            <div class = "box">
                 <img src="../../assets/Sample_Photos/${name}/${this.image}" alt="${this.title}"  class = "media">
             </div>
             <div class = "legend">
@@ -83,7 +83,7 @@ class Video {
     displayPhotoCard(name){
         return`
         <article>
-            <div>
+            <div class = "box">
                 <video  controls class = "media">
                     <source src= "../../assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4" >
                 </video>
@@ -96,7 +96,7 @@ class Video {
                 <div>
                     <h5 class ="likes">${this.likes}</h5>
                 </div>
-                <div>
+                <div class = "cursor-pointer">
                     <i class="far fa-heart heart" ></i>
                     <i class="fas fa-heart fullHeart"></i>
                 </div>
