@@ -101,9 +101,7 @@ const navRight = () => {
     let nextBox ;
 let currentBoxIndex;
     // Event au click sur flèche droite
-    boxRight.addEventListener('click', () => {
-       goRight() 
-    })
+    boxRight.addEventListener('click', () => { goRight() })
     document.addEventListener('keydown',(e) => { if(e.code == 'ArrowRight'){ goRight() }})
    
     const goRight = () => {
