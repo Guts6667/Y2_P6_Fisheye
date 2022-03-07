@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
+    <meta charset="utf-8" >
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
@@ -11,33 +11,33 @@
   <body>
     <header>
       <a href="./index.html">
-        <img src="assets/images/logo.png" class="logo" />
+        <img src="assets/images/logo.png" class="logo"  alt="Logo Fisheye" tabindex="1"/>
       </a>
     </header>
     <main id="main">
       <div class="photograph-header" id="photographerHeader">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()" tabindex="4">Contactez-moi</button>
       </div>
        <div class="triSection">
         <div>
-          <p>Trier par</p>
+          <p tabindex="6">Trier par</p>
         </div>
         <!-- Bouton Trie -->
         <div class="triButton">
-          <div id="optionContainer">
-            <div class=" optionButton "  id="popularityOption">
+          <div id="optionContainer" tabindex="7" aria-roledescription="Liste déroulante permettant de trier les photos.">
+            <div class=" optionButton "  id="popularityOption" tabindex="9">
               <span>Popularité</span>
             </div>
-            <div class="optionButton"  id="dateOption" style="display:none">
+            <div class="optionButton"  id="dateOption" style="display:none" tabindex="10">
               <span>Date</span>
             </div>
-            <div class="optionButton"  id="titleOption" style="display:none">
+            <div class="optionButton"  id="titleOption" style="display:none" tabindex="11">
               <span>Titre</span>
             </div>
           </div>
           <div >
-            <i class="fas fa-chevron-up cursor-pointer " style="display:none" id="arrowUp"></i>
-            <i class="fas fa-chevron-down cursor-pointer"  id="arrowDown"></i>
+            <i class="fas fa-chevron-up cursor-pointer " style="display:none" id="arrowUp" tabindex="12" ></i>
+            <i class="fas fa-chevron-down cursor-pointer"  id="arrowDown" tabindex="8"></i>
           </div>
         </div>
       </div> 
@@ -60,7 +60,9 @@
         id = "form"
               action="index.html"
               method="get"
-              onsubmit="return validate();">
+              onsubmit="return validate();"
+              aria-label="Contacter le photographer"
+              role="form">
 					<div class="formData">
 						<label for="firstName">Prénom</label>
 						<input name="firstName" type="text" placeholder="Renseigner votre prénom" id="firstName" class="text-control">
@@ -82,7 +84,7 @@
 			</div>
 		</div>
     <!--Lightbox Section-->
-    <section class="lightbox">
+    <section class="lightbox hidden">
       <div>
         <i class="fas fa-chevron-left"></i>
       </div>

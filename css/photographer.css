@@ -198,7 +198,7 @@ form input {
     text-align: center;
 }
 .lightbox{
-    display: none;
+    display: flex;
     justify-content: space-evenly;
     flex-direction: row;
     align-items: center;

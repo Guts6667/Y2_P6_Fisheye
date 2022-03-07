@@ -33,7 +33,7 @@ class Photo {
         return`
         <article>
             <div class = "box">
-                <img src="../../assets/Sample_Photos/${name}/${this.image}" alt="${this.title}"  class = "media">
+                <img src="../../assets/Sample_Photos/${name}/${this.image}" alt="${this.title}"  class = "media" tabindex="17">
             </div>
             <div class = "legend">
                 <div>
@@ -54,7 +54,7 @@ class Photo {
 
     displayLightbox(name){
         return `
-         <div class="lightboxImg">
+         <div class="lightboxImg hidden">
              <img src="../../assets/Sample_Photos/${name}/${this.image}" alt="${this.title}"  >
              <h4>${this.title}</h4>
          </div>
@@ -106,7 +106,7 @@ class Video {
     }
     displayLightbox(name){
         return `
-         <div class="lightboxImg">
+         <div class="lightboxImg hidden">
             <video  controls>
                 <source src= "../../assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4">
             </video>
