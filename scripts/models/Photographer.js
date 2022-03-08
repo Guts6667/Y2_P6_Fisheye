@@ -19,9 +19,9 @@ class Photographer {
 
         return `
         <article class = "photographer_article" id = "photographerArticle" >
-            <a href = "../../photographer.html?id=${this.id}">
+            <a href = "./photographer.html?id=${this.id}">
                 <div class = "photographer_thumbnail">
-                    <img src="../../assets/Sample_Photos/PhotographersIDPhotos/${this.portrait}" alt= "Portrait de ${this.name}">
+                    <img src="./assets/Sample_Photos/PhotographersIDPhotos/${this.portrait}" alt= "Portrait de ${this.name}">
                 </div>
                 <div>
                     <h2>${this.name}</h2>
@@ -60,7 +60,7 @@ class Photographer {
     createPhotographerHeaderRight(){
         return `
         <div class = "photograph-thumbnail header-box">
-            <img src="../../assets/Sample_Photos/PhotographersIDPhotos/${this.portrait}" alt= "Portrait de ${this.name}" tabindex="5">
+            <img src="./assets/Sample_Photos/PhotographersIDPhotos/${this.portrait}" alt= "Portrait de ${this.name}" tabindex="5">
         </div>
         `
     }

@@ -33,7 +33,7 @@ class Photo {
         return`
         <article>
             <div class = "box">
-                <img src="../../assets/Sample_Photos/${name}/${this.image}" alt="${this.title}"  class = "media" tabindex="17">
+                <img src="./assets/Sample_Photos/${name}/${this.image}" alt="${this.title}"  class = "media" tabindex="17">
             </div>
             <div class = "legend">
                 <div>
@@ -55,7 +55,7 @@ class Photo {
     displayLightbox(name){
         return `
          <div class="lightboxImg hidden">
-             <img src="../../assets/Sample_Photos/${name}/${this.image}" alt="${this.title}"  >
+             <img src="./assets/Sample_Photos/${name}/${this.image}" alt="${this.title}"  >
              <h4>${this.title}</h4>
          </div>
          `
@@ -85,7 +85,7 @@ class Video {
         <article>
             <div class = "box">
                 <video  controls class = "media">
-                    <source src= "../../assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4" >
+                    <source src= "./assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4" >
                 </video>
             </div>
             <div class = "legend">
@@ -108,7 +108,7 @@ class Video {
         return `
          <div class="lightboxImg hidden">
             <video  controls>
-                <source src= "../../assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4">
+                <source src= "./assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4">
             </video>
             <h4>${this.title}</h4>
          </div>
