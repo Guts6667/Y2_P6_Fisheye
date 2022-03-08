@@ -247,6 +247,7 @@ form input {
     right: 10%;
     color: #901C1C;
     font-size: 30px;
+    cursor: pointer;
 }
 
 .media {
@@ -299,3 +300,10 @@ img{
       font-size: 45px;
       color: black;
   }
+
+.fa-chevron-left{
+    cursor: pointer;
+}
+.fa-chevron-right{
+    cursor: pointer;
+}

@@ -37,15 +37,15 @@ class Photo {
             </div>
             <div class = "legend">
                 <div>
-                    <h4>${this.title}</h4>
+                    <h4 tabindex="17">${this.title}</h4>
                 </div>
                 <div class = "like-box">
                     <div>
-                        <h5 class ="likes">${this.likes}</h5>
+                        <h5 class ="likes" tabindex="17">${this.likes}</h5>
                     </div>
                     <div>
-                        <i class="far fa-heart heart" ></i>
-                        <i class="fas fa-heart fullHeart"></i>
+                        <i class="far fa-heart heart" tabindex="17"></i>
+                        <i class="fas fa-heart fullHeart" tabindex="17"></i>
                     </div>
                 </div>
             </div>
