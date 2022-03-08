@@ -3,8 +3,8 @@
 const lightboxInit = () => {
     // Ici je récupère la section contenant les articles
     let mediasToGet = document.querySelector('#photoSection')
-    // Je récupère toutes les sources des medias dans cette section
-    const mediasToClick = mediasToGet.querySelectorAll('img[src$=".jpg"],source[src$=".mp4"]')
+    // Je récupère toutes les box dans ma lightbox
+    const mediasToClick = mediasToGet.querySelectorAll('.box')
     // Je récupère toutes mes lightbox
     let myLightboxes = document.querySelectorAll('.lightboxImg');
     myLightboxes = [...myLightboxes];
