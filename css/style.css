@@ -83,3 +83,6 @@ a {
     font-size: 9px;
     color: #757575;
 }
+img{
+    object-fit: cover;
+}

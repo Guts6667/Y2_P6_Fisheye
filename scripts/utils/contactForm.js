@@ -6,15 +6,19 @@ const message = document.getElementById('message')
 const submitBtn = document.getElementById('submitBtn');
 const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const modal = document.querySelector('.modal');
+const contactBtn = document.querySelector('.contact_button');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 })
-
-function displayModal() {
-    const modal = document.getElementById("contact_modal");
+contactBtn.addEventListener('click', () => {
+  const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
-}
+  })
+// function displayModal() {
+//     const modal = document.getElementById("contact_modal");
+// 	modal.style.display = "block";
+// }
 
 function closeModal() {
     const modal = document.getElementById("contact_modal");
