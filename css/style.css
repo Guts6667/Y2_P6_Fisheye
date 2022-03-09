@@ -38,10 +38,9 @@ a {
 }
 
 .photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-evenly;
 }
 
 .photographer_section article {
@@ -50,6 +49,9 @@ a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 30%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .photographer_section article h2 {
