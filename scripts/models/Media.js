@@ -84,7 +84,7 @@ class Video {
         return`
         <article>
             <div class = "box">
-                <video  controls class = "media" tabindex="17">
+                <video  controls class = "media">
                     <source src= "./assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4" tabindex="17">
                 </video>
             </div>

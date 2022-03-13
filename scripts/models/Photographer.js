@@ -33,7 +33,7 @@ class Photographer {
                     <p tabindex="5" >${this.tagline}</p>
                 </div>
                 <div class = "photographer_price">
-                    <p tabindex="5" >${this.price}/jour</p>
+                    <p tabindex= "5">${this.price}/jour</p>
                 </div>
              </a>
         </article>
