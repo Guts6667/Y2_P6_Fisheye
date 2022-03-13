@@ -1,3 +1,14 @@
+* :focus{
+    outline-color:  darkorange;
+}
+main{
+    margin-bottom: 2%;
+}
+a:focus{
+    outline-color: blue;
+
+}
+
 #contact_modal {
     display: none;
 }
@@ -102,6 +113,7 @@ article{
 .photographer_name {
     color: #DE573C;
 }
+
 .contact_button {
     font-size: 20px;
     font-weight: bold;
@@ -119,14 +131,13 @@ article{
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 35px;
-    margin: auto;
-    position: fixed;
+    padding: 2%;
+    position: absolute;
     top: 2%;
     left: 20%;
     z-index: 35;
@@ -136,6 +147,7 @@ article{
 .modal header {
     justify-content: space-between;
     width: 100%;
+    margin: 5%;
 }
 
 .modal header img {
@@ -151,7 +163,7 @@ article{
 
 form {
     display: flex;
-    width: 100%;
+    width: 90%;
     flex-direction: column;
     align-items: flex-start;
 }

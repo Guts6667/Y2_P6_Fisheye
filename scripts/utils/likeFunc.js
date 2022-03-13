@@ -1,4 +1,6 @@
-// Like Function
+
+
+// Heart Function
 const likeFunc = () => {
     let heart = document.querySelectorAll(".heart")
     let fullHeart = document.querySelectorAll(".fullHeart")
@@ -24,36 +26,48 @@ const likeFunc = () => {
         let thumbnail = document.querySelector('.thumbnail')
         thumbnail.innerHTML= 
         ` <div>
-             <span>${sumLikes}</span>
-             <i class="fas fa-heart"></i>
+             <span tabindex="18">${sumLikes}</span>
+             <i class="fas fa-heart" tabindex="18"></i>
          </div>
          <div>
-             <span>${myPhotographer.price}€ / jour</span>
+             <span tabindex="18">${myPhotographer.price}€ / jour</span>
          </div>
         `
     }
-    updateThumb()
-        // Update hearts ++
-        heart.forEach(element => {
-            
-            element.addEventListener("click", () =>{
-                element.setAttribute('style', 'display : none')
-                fullHeart = element.nextElementSibling.setAttribute('style', 'display : inline;')
-                let like = element.closest('div').previousElementSibling.firstElementChild
-                like.innerHTML ++
-                sumLikes ++
-                updateThumb()
-            })
-        })
-        // Update hearts --
-        fullHeart.forEach(element => {
-            element.addEventListener("click", () =>{
-                element.setAttribute('style', 'display : none')
+
+    // Like Function
+    const dislike = ( element ) =>{
+        element.setAttribute('style', 'display : none')
                 heart = element.previousElementSibling.setAttribute("style", 'display : inline;')
                 let like = element.closest('div').previousElementSibling.firstElementChild
                 like.innerHTML--
                 sumLikes --
                 updateThumb()
-            })
+    }
+
+    // Dislike Function
+    const like = ( element ) => {
+        element.setAttribute('style', 'display : none')
+                fullHeart = element.nextElementSibling.setAttribute('style', 'display : inline;')
+                let like = element.closest('div').previousElementSibling.firstElementChild
+                like.innerHTML ++
+                sumLikes ++
+                updateThumb()
+    }
+
+    updateThumb()
+        // Update hearts ++
+        heart.forEach(element => {
+            element.addEventListener("click", () =>{ like(element)})
+            element.addEventListener("keydown", (e) =>{ if(e.code == 'Enter'){like(element)} })
+        })
+        // Update hearts --
+        fullHeart.forEach(element => {
+            element.addEventListener("click", () =>{ dislike(element)})
+            element.addEventListener("keydown", (e) =>{ if(e.code == 'Enter'){dislike(element)} })
         })
     }
+
+  
+
+ 

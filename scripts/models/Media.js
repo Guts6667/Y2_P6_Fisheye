@@ -55,8 +55,8 @@ class Photo {
     displayLightbox(name){
         return `
          <div class="lightboxImg hidden">
-             <img src="./assets/Sample_Photos/${name}/${this.image}" alt="${this.title}"  >
-             <h4>${this.title}</h4>
+             <img src="./assets/Sample_Photos/${name}/${this.image}" alt="${this.title}"  tabindex="16">
+             <h4 tabindex="17">${this.title}</h4>
          </div>
          `
      }
@@ -84,21 +84,21 @@ class Video {
         return`
         <article>
             <div class = "box">
-                <video  controls class = "media">
-                    <source src= "./assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4" >
+                <video  controls class = "media" tabindex="17">
+                    <source src= "./assets/Sample_Photos/${name}/${this.video}" alt="${this.title} type = "video/mp4" tabindex="17">
                 </video>
             </div>
             <div class = "legend">
             <div>
-                <h4>${this.title}</h4>
+                <h4 tabindex="17">${this.title}</h4>
             </div>
             <div class = "like-box">
                 <div>
-                    <h5 class ="likes">${this.likes}</h5>
+                    <h5 class ="likes" tabindex="17">${this.likes}</h5>
                 </div>
                 <div class = "cursor-pointer">
-                    <i class="far fa-heart heart" ></i>
-                    <i class="fas fa-heart fullHeart"></i>
+                    <i class="far fa-heart heart" tabindex="17"></i>
+                    <i class="fas fa-heart fullHeart" tabindex="17"></i>
                 </div>
             </div>
         </div>

@@ -19,21 +19,21 @@ class Photographer {
 
         return `
         <article class = "photographer_article" id = "photographerArticle" >
-            <a href = "./photographer.html?id=${this.id}">
+            <a href = "./photographer.html?id=${this.id}" tabindex="5">
                 <div class = "photographer_thumbnail">
-                    <img src="./assets/Sample_Photos/PhotographersIDPhotos/${this.portrait}" alt= "Portrait de ${this.name}">
+                    <img src="./assets/Sample_Photos/PhotographersIDPhotos/${this.portrait}" alt= "Portrait de ${this.name}" tabindex="5">
                 </div>
                 <div>
-                    <h2>${this.name}</h2>
+                    <h2 tabindex="5" >${this.name}</h2>
                 </div>
                 <div>
-                    <h3>${this.city}, ${this.country}</h3>
+                    <h3 tabindex="5" >${this.city}, ${this.country}</h3>
                 </div>
                 <div class = "photographer_tagline">
-                    <p>${this.tagline}</p>
+                    <p tabindex="5" >${this.tagline}</p>
                 </div>
                 <div class = "photographer_price">
-                    <p>${this.price}/jour</p>
+                    <p tabindex="5" >${this.price}/jour</p>
                 </div>
              </a>
         </article>

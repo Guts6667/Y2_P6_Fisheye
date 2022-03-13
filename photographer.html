@@ -62,14 +62,15 @@
               method="get"
               onsubmit="validate();"
               aria-label="Contacter le photographer"
-              role="form">
-					<div class="formData">
-						<label for="firstName">Prénom</label>
-						<input name="firstName" type="text" placeholder="Renseigner votre prénom" id="firstName" class="text-control">
+              role="form"
+              tabindex="0">
+					<div class="formData" >
+						<label for="firstName" tabindex="0" autofocus>Prénom</label>
+						<input name="firstName" type="text" placeholder="Renseigner votre prénom" id="firstName" class="text-control" tabindex="O">
 					</div>
           <div class="formData">
-            <label for="lastName">Nom</label>
-            <input name="lastName" type="text" placeholder="Renseigner votre nom" id="lastName" class="text-control">
+            <label for="lastName" tabindex="0">Nom</label>
+            <input name="lastName" type="text" placeholder="Renseigner votre nom" id="lastName" class="text-control" tabindex="0">
           </div>
           <div class="formData">
             <label for="email">Email</label>

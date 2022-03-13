@@ -12,6 +12,7 @@ const lightboxInit = () => {
     mediasToClick.forEach( media => {
         // Pour chaque media
         media.addEventListener('click', (e) => {
+            console.log(e);
             // Je récupère l'attribut src du media à afficher
             const mediaToDisplay = e.target.getAttribute('src')
             // Pour chaque lightbox
@@ -25,6 +26,25 @@ const lightboxInit = () => {
                     closeLightBox();
                 }
             })
+        })
+        media.addEventListener('keydown', (e) => {
+            console.log(e);
+            if(e.code == 'Enter'){
+                // Je récupère l'attribut src du media à afficher
+                const mediaToDisplay = e.target.getAttribute('src')
+                // Pour chaque lightbox
+                myLightboxes.forEach(mediaBox => {
+                    // Je récupère l'attribut src
+                let myMedia = mediaBox.firstElementChild.getAttribute('src');
+                // Je compare si les attributs src correspondent
+                    if(myMedia == mediaToDisplay){ // Si oui, je retire la class 'hidden'
+                        mediaBox.classList.remove('hidden')
+                        lightboxSection.classList.remove('hidden');
+                        closeLightBox();
+                    }
+                })
+            }
+            
         })
     })
 

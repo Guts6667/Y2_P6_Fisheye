@@ -15,16 +15,13 @@ contactBtn.addEventListener('click', () => {
   const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
   })
-// function displayModal() {
-//     const modal = document.getElementById("contact_modal");
-// 	modal.style.display = "block";
-// }
 
 function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
     modal.style.zIndex = "35";
 }
+document.addEventListener('keydown', (e)=> {if( e.code =='Escape'){ closeModal() } })
 
 // (1) Le champ Prénom a un minimum de 2 caractères / n'est pas vide.
 const firstNameVerification = () => {
