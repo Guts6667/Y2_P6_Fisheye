@@ -6,7 +6,15 @@ main{
 }
 a:focus{
     outline-color: blue;
+}
 
+.contact_button-1:hover{
+    background: #D3573C;
+    color: black;
+}
+.contact_button-1:focus{
+    background: #D3573C;
+    color: black;
 }
 
 #contact_modal {
@@ -15,14 +23,18 @@ a:focus{
 
 .photograph-header {
     background-color: #FAFAFA;
-    height: 300px;
     margin: 0 10%;
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    justify-content: space-evenly;
+    grid-template-columns: 30% 30% 30%;
     align-items: center;
-    padding: 20px;
+    padding: 5%;
     margin-bottom: 30px;
 }
+.photograph-header :only-child{
+    margin: 2%;
+}
+
 
 
 .photo-section{
@@ -33,12 +45,38 @@ a:focus{
     align-items: center;
     margin: 0 10%;
 }
+@media only screen and (max-width: 600px) {
+    .photo-section{
+        flex-direction: column;
+    }
+    article{
+        min-width: 100%;
+    }
+    .photograph-header {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+  }
+
+  @media only screen and (max-width: 992px) and (min-width : 600px) {
+    
+    article{
+        min-width: 45%;
+    }
+    .photograph-header {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+  }
 
 article{
     width: 30%;
     display: flex;
     flex-direction: column;
 }
+
 
 .legend{
     display: flex;
