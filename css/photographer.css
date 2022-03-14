@@ -271,12 +271,17 @@ form input {
     width: 50%;
 }
 .lightbox-media img{
-    width: 70%;
+    width: 90%;
+    height: 90%;
     margin: auto ;
+    border-radius: 5px;
+    
 }
 .lightbox-media video{
-    width: 70%;
-    margin: auto;
+    width: 90%;
+    height: 90%;
+    margin: auto ;
+    border-radius: 5px;
    
 }
 .lightbox h4{
