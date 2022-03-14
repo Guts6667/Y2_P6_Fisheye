@@ -286,6 +286,7 @@ form input {
 .lightboxImg{
     display: flex;
     flex-direction: column;
+    width: 70%;
 }
 
 
@@ -361,7 +362,9 @@ img{
 
 .fa-chevron-left{
     cursor: pointer;
+    color: #901C1C;
 }
 .fa-chevron-right{
     cursor: pointer;
+    color: #901C1C;
 }
