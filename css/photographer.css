@@ -7,7 +7,12 @@ main{
 a:focus{
     outline-color: blue;
 }
-
+h4{
+    color: #901C1C;
+}
+h5{
+    color: #901C1C;
+}
 .contact_button-1:hover{
     background: #D3573C;
     color: black;
@@ -276,6 +281,7 @@ form input {
 }
 .lightbox h4{
     margin-left: 15%;
+
 }
 .lightboxImg{
     display: flex;
