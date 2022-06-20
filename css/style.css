@@ -89,3 +89,64 @@ a {
 img{
     object-fit: cover;
 }
+
+
+
+/*Modal RC Styles*/
+.modal-rc{
+    z-index: 100;
+    position: fixed;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 2px 1px 16px 3px #62825d;
+    min-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .modal-rc-close-btn{
+    align-self: flex-end;
+    font-size: 26px;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+  
+  .modal-rc-title {
+    font-size: 18px;
+  }
+  
+  .modal-rc-btn{
+    padding: 12px;
+    border-radius: 15px;
+    background-color: white;
+    color: black;
+    min-width: 25%;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 16px;
+  }
+  .modal-rc-btn:hover{
+    background-color: rgb(6, 5, 5);
+    color: white;
+    box-shadow: 0px 0px 8px 2px #ffffff71;
+  }
+  .modal-rc-btn:active{
+    background-color: rgb(6, 5, 5);
+    color: white;
+    box-shadow: 0px 0px 1px 2px #ffffffc8;
+  }
+  .hidden{
+    display: none;
+  }
+  /*-------------------------*/
